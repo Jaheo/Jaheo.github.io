@@ -70,9 +70,259 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-我的第二篇博客" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Kotlin基础知识-类与对象" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/11/我的第二篇博客/" class="article-date">
+    <a href="/2019/03/04/Kotlin基础知识-类与对象/" class="article-date">
+  <time datetime="2019-03-04T02:10:34.453Z" itemprop="datePublished">2019-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/04/Kotlin基础知识-类与对象/">Kotlin基础（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h2 id="Kotlin基础–函数"><a href="#Kotlin基础–函数" class="headerlink" title="Kotlin基础–函数"></a>Kotlin基础–函数</h2><p>###类和对象<br>1、主构造函数和次构造函数</p>
+<pre><code>// 主构造函数
+class Person constructor(value: Int){
+    // get  和 set方法的书写形式 ， 使用person.name=&quot;xxx&quot;来赋值，会执行set方法的逻辑
+    var name: String = &quot;测试&quot;
+        get() = field
+        set(value){field = value}
+
+    var age = value
+    // 初始化函数
+    init{
+
+    }
+}
+
+// 次构造函数
+class Person{
+     constructor(value: Int){
+        // 初始化操作
+    }
+}
+</code></pre><p>2、抽象 abstract  与  open（允许类继承或者方法重写）</p>
+<p>3、嵌套类 与 内部类(inner修饰)</p>
+<p>4、类的继承</p>
+<pre><code>//定义基类
+open class Base(p: Int)     
+// 继承
+class Derived(p: Int) : Base(p)
+
+主构造函数 和 子构造函数 下基类的定义
+
+方法重写 需要用open修饰， 属性重写需要 override 修饰
+</code></pre><p>5、扩展类的属性和方法</p>
+<pre><code>扩展是一种静态行为，不会对被扩展类的代码本身造成影响
+</code></pre><p>6、数据类</p>
+<pre><code>使用 data 关键字修饰，则该类只包含 数据
+</code></pre><p>7、密封类</p>
+<pre><code>使用sealed 修饰，密封类可以有子类，但是子类必须要内嵌在密封类中
+</code></pre><p>###泛型</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/04/Kotlin基础知识-类与对象/" data-id="cjstw0z6y000410eod9bowq7q" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Kotlin基础知识-函数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/04/Kotlin基础知识-函数/" class="article-date">
+  <time datetime="2019-03-04T02:08:12.250Z" itemprop="datePublished">2019-03-04</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/04/Kotlin基础知识-函数/">Kotlin基础（二）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+<h2 id="Kotlin基础–函数"><a href="#Kotlin基础–函数" class="headerlink" title="Kotlin基础–函数"></a>Kotlin基础–函数</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><pre><code>函数使用 fun 关键字来定义, 使用 Unit 来代表空值返回
+
+fun sum(x:Int, y:Int):Int{
+    return x+y
+}
+</code></pre><h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><pre><code>1、默认参数 ： 默认参数被省略后，会自动使用默认值
+fun sum(x:Int = 0 , y:Int):Int{
+    return x+y
+}
+sum(y=2) // 默认x=0 进行运算 , 这种 “参数名=参数值” 的调用使用了命名参数，避免了参数过多时，无法轻易的分辨出每个参数的具体含义；
+
+2、可变参数 vararg , 在kotlin中 ，可变参数实际通过数组来处理， 特别的，在kotlin中操作数组时，需要使用伸展操作符（*）
+fun sum(vararg paras:Int):Int{
+    var result:Int =0
+    for(para in paras) result+=para
+    return result
+}
+val paraArray = intArrayOf(1,2,3,4)
+sum(*paraArray)
+</code></pre><h3 id="单表达式函数"><a href="#单表达式函数" class="headerlink" title="单表达式函数"></a>单表达式函数</h3><pre><code>即函数返回了单个的表达式，如：
+fun sum(x:Int = 0 , y:Int):Int{
+    return x+y
+}
+等价于 fun sum(x:Int = 0 , y:Int):Int = x+y
+等价于 fun sum(x:Int = 0 , y:Int) = x+y // x,y类型已经声明，那么返回类型可推导
+</code></pre><h3 id="成员函数"><a href="#成员函数" class="headerlink" title="成员函数"></a>成员函数</h3><pre><code>定义在类或对象的内部的函数
+</code></pre><h3 id="局部函数"><a href="#局部函数" class="headerlink" title="局部函数"></a>局部函数</h3><pre><code>定义在函数内部的函数，可以访问其外部函数(即闭包)的成员变量，使用时也要由外部函数来调用
+
+// 成员函数
+fun outMethod(x: Int, y: Int) {
+    val memberVal = 10
+    // 局部函数
+    fun innerMethod(z: Double): Double {
+        return z * memberVal
+    }
+}
+</code></pre><h3 id="匿名函数"><a href="#匿名函数" class="headerlink" title="匿名函数"></a>匿名函数</h3><pre><code>没有函数名
+fun(x:Int = 0 , y:Int):Int{
+    return x+y
+}
+</code></pre><h3 id="Lambda-表达式"><a href="#Lambda-表达式" class="headerlink" title="Lambda 表达式"></a>Lambda 表达式</h3><pre><code>本质上是一个匿名函数，而且可作为一个接口被实现
+val sum = {x:Int ,y:Int -&gt; x+y }
+</code></pre><h3 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h3><pre><code>将函数作为参数或者返回值的函数
+fun sum(x:Int = 0 , y:Int, paraFunc:(a:Int,b:Int)-&gt;Boolean):Int{
+    return if(paraFunc(x,y)) x+y else x-y
+}
+
+在Kotlin中，如果函数最后一个参数接收函数，那么这个函数可以放在外面
+fun sum(x:Int = 0 , y:Int, paraFunc:(a:Int,b:Int)-&gt;Boolean):Int{
+    return if(paraFunc(x,y)) x+y else x-y
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/04/Kotlin基础知识-函数/" data-id="cjstw0z6m000110eo2lcnstz1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-小知识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/12/15/小知识/" class="article-date">
+  <time datetime="2018-12-15T04:43:42.956Z" itemprop="datePublished">2018-12-15</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>##CIRC 中国保险监督管理委员会</p>
+<p>一行三会：央行，银监会，证监会，保监会</p>
+<p>2018年与银监会合并</p>
+<h3 id="规章制度"><a href="#规章制度" class="headerlink" title="规章制度"></a>规章制度</h3><p>中华人民共和国保险法</p>
+<p>C-ROSS 偿付能力二代监管规则  用来确定有99.5%的概率不会倒闭</p>
+<p>巴塞尔3协议 ，C-ROSS升级版</p>
+<p>CFA ,  FSA  , FIA 精算师</p>
+<p>保险保障基金  +  保单转保</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>寿险：人寿险、健康险、养老险</p>
+<p>财险：财产险</p>
+<p>社保和保险完全不同，社保不以营利为目的，而卖保险时为了赚钱。</p>
+<p>广义的社保还包括新农合，大病医保，地方政府的一些公共保险项目等；保险公司也能提供社保提供的保险项目</p>
+<p>保险公司的利润来源：死差(小于预算的死亡数)、利差(保金投资)、费差（小于预算的运营费用）；</p>
+<h3 id="知乎推荐"><a href="#知乎推荐" class="headerlink" title="知乎推荐"></a>知乎推荐</h3><p>房屋保险：平安家庭财险</p>
+<p>重疾险：提前给付型、额外给付型</p>
+<pre><code>恶性肿瘤、急性心梗、脑中风后遗症、器官移植、造血干细胞移植、冠状动脉搭桥手术、终末期肾病
+
+行业重疾还有另外19种常见的重疾定义
+
+百年康惠保重疾险
+</code></pre><p>定期寿险：渤海人寿优选顶起寿险、同方全球【挚爱】优选定期寿险</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/12/15/小知识/" data-id="cjstw0z70000510eocb1m9ezk" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-优达数据基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/16/优达数据基础/" class="article-date">
+  <time datetime="2018-10-16T10:53:46.637Z" itemprop="datePublished">2018-10-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>title 优达学城数据分析入门（数据基础）</p>
+<hr>
+<h2 id="数据分类"><a href="#数据分类" class="headerlink" title="数据分类"></a>数据分类</h2><pre><code>#定量数据
+    离散型数据
+    连续型数据 ： 可以细分为更小的单位 ， etc: m d h min second
+#定类数据
+    定序型数据
+    定类型数据
+</code></pre><h2 id="定量数据"><a href="#定量数据" class="headerlink" title="定量数据"></a>定量数据</h2><h3 id="分析指标"><a href="#分析指标" class="headerlink" title="分析指标"></a>分析指标</h3><p>集中趋势</p>
+<pre><code>均值 ，中位数 ，众数
+</code></pre><p>离散程度</p>
+<p>形状</p>
+<p>异常值</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/10/16/优达数据基础/" data-id="cjstw0z6r000210eou743iood" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android动态加载" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/10/11/Android动态加载/" class="article-date">
   <time datetime="2018-10-11T08:08:31.086Z" itemprop="datePublished">2018-10-11</time>
 </a>
     
@@ -84,7 +334,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/我的第二篇博客/">我的第二篇博客</a>
+      <a class="article-title" href="/2018/10/11/Android动态加载/">Android动态加载</a>
     </h1>
   
 
@@ -92,17 +342,16 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>测试版本</p>
-<p>date: 2018-10-11 16:08:31<br>
+        <p>完善中…</p>
         
           <p class="article-more-link">
-            <a href="/2018/10/11/我的第二篇博客/#more">Read More</a>
+            <a href="/2018/10/11/Android动态加载/#more">Read More</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/11/我的第二篇博客/" data-id="cjn5fb2on000168eo8t1u0q6h" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/11/Android动态加载/" data-id="cjstw0z67000010eortaqfvcm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -112,9 +361,9 @@
 
 
   
-    <article id="post-Kotlin(Android向)" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Kotlin基础知识-基本语法" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2018/10/11/Kotlin(Android向)/" class="article-date">
+    <a href="/2018/10/11/Kotlin基础知识-基本语法/" class="article-date">
   <time datetime="2018-10-11T02:23:54.953Z" itemprop="datePublished">2018-10-11</time>
 </a>
     
@@ -126,7 +375,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/Kotlin(Android向)/">基于Android方向的Kotlin基础与简单使用</a>
+      <a class="article-title" href="/2018/10/11/Kotlin基础知识-基本语法/">Kotlin基础（一）</a>
     </h1>
   
 
@@ -134,16 +383,74 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>未完，待完善.<br>
-        
-          <p class="article-more-link">
-            <a href="/2018/10/11/Kotlin(Android向)/#more">Read More</a>
-          </p>
-        
+        <a id="more"></a>
+<h2 id="Kotlin基础–常用语法"><a href="#Kotlin基础–常用语法" class="headerlink" title="Kotlin基础–常用语法"></a>Kotlin基础–常用语法</h2><h3 id="Kotlin简介"><a href="#Kotlin简介" class="headerlink" title="Kotlin简介"></a>Kotlin简介</h3><p>由JetBrains开发的一款基于JVM的编程语言，能够编译成Java字节码，适用于现在所有的Java环境，也可以编译成JavaScript，方便在没有JVM的设备上运行。是目前Android的官方开发语言</p>
+<p><a href="https://www.kotlincn.net" target="_blank" rel="noopener">官网</a></p>
+<h3 id="Kotlin基础语法"><a href="#Kotlin基础语法" class="headerlink" title="Kotlin基础语法"></a>Kotlin基础语法</h3><p>1、Kotlin文件以 .KT 为后缀</p>
+<p>2、包的声明和导入与Java相同</p>
+<p>3、变量的声明</p>
+<pre><code>var 变量名 : 变量的类型 = 变量的初始值  
+变量的类型通常可以省略(系统推断)，
+但是在没有指定变量的初始值时，不能省略,例如 :*************有待确认，是常量需要还是变量
+var  c: Int 不能写成 var c 
+</code></pre><p>4、常量的声明</p>
+<pre><code>val 常量名 : 常量的类型 = 常量的初始化值
+</code></pre><p>5、函数的定义（与java不同）</p>
+<pre><code>无返回值类型
+fun sum(a:Int){} 或者 fun sum(a:Int):Unit{}
+
+有返回值类型 
+fun sum(a:Int,b:Int):Int{
+    return a+b 
+}
+返回值类型可以自动推断，所以可以省略， 但是被public 修饰的方法，不能省略返回值类型
+
+可变长参数函数 vararg 关键字修饰
+fun vars(vararg v:Int){
+    for(value in v){print(value)}
+}
+
+lambda(匿名函数)
+val sumLambda:(Int,Int) -&gt;Int = {x,y -&gt; x+y}
+大括号中定义函数的执行逻辑
+</code></pre><p>6、NULL检查</p>
+<pre><code>?  指定可以为空 , 如果为空，返回null
+定义时： var para:String?=&quot;123&quot;
+使用时： val result = para?.toInt()
+
+!! 指定不可以为空，如果给定了空值，抛出异常
+使用时： val result = para!!.toInt()
+</code></pre><p>7、区间</p>
+<pre><code>..       1..5 即 1,2,3,4,5
+downTo     5 downTo 1 即 5,4,3,2,1 不能写成 5..1的形式
+step    步长  1..5 setp 2 即 1，3，5
+until    半包结构 1 until 5 即 [1,5)
+</code></pre><h3 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h3><p>note : 不支持8进制</p>
+<p>1、数字的定义支持下划线</p>
+<pre><code>val value = 1_0000_0000
+</code></pre><p>2、比较</p>
+<pre><code>=== 表示 对比 地址值 ， == 表示对比 值的大小
+
+char 类型不能直接和 int 类型比较
+</code></pre><p>3、隐式转换要注意</p>
+<pre><code>和java不同，较小的数据类型不能直接赋值给教大的数据类型
+</code></pre><h3 id="条件控制"><a href="#条件控制" class="headerlink" title="条件控制"></a>条件控制</h3><p>1、 if…else</p>
+<pre><code>if...else... 可以写成表达式的形式  val max = if(a&gt;b) a else b
+</code></pre><p>2、 when{..else..}</p>
+<pre><code>类似与switch操作，从上到下进行判断操作 ，else 就类似与 default
+
+when(x){
+    0 -&gt; print(结果为0)
+    1 -&gt; print(结果为1)
+    else-&gt;{
+        print(结果异常)
+    }
+}
+</code></pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/10/11/Kotlin(Android向)/" data-id="cjn5fb2o9000068eoykoikcbw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/10/11/Kotlin基础知识-基本语法/" data-id="cjstw0z6v000310eolt2neymt" class="article-share-link">Share</a>
       
       
     </footer>
@@ -171,7 +478,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/10/">十月 2018</a></li></ul>
     </div>
   </div>
 
@@ -184,11 +491,23 @@
       <ul>
         
           <li>
-            <a href="/2018/10/11/我的第二篇博客/">我的第二篇博客</a>
+            <a href="/2019/03/04/Kotlin基础知识-类与对象/">Kotlin基础（二）</a>
           </li>
         
           <li>
-            <a href="/2018/10/11/Kotlin(Android向)/">基于Android方向的Kotlin基础与简单使用</a>
+            <a href="/2019/03/04/Kotlin基础知识-函数/">Kotlin基础（二）</a>
+          </li>
+        
+          <li>
+            <a href="/2018/12/15/小知识/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/16/优达数据基础/">(no title)</a>
+          </li>
+        
+          <li>
+            <a href="/2018/10/11/Android动态加载/">Android动态加载</a>
           </li>
         
       </ul>
@@ -203,7 +522,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2018 Jaheo Ma<br>
+      &copy; 2019 Jaheo Ma<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>

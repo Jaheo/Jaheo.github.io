@@ -5,19 +5,20 @@
   
 
   
-  <title>归档 | Zaki</title>
+  <title>Kotlin基础（二） | Zaki</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="记录学习过程中的点滴">
+  <meta name="description" content="Kotlin基础–函数###类和对象1、主构造函数和次构造函数 // 主构造函数 class Person constructor(value: Int){     // get  和 set方法的书写形式 ， 使用person.name=&amp;quot;xxx&amp;quot;来赋值，会执行set方法的逻辑     var name: String = &amp;quot;测试&amp;quot;         ge">
 <meta name="keywords" content="Jaheo">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Zaki">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Kotlin基础（二）">
+<meta property="og:url" content="http://yoursite.com/2019/03/04/Kotlin基础知识-类与对象/index.html">
 <meta property="og:site_name" content="Zaki">
-<meta property="og:description" content="记录学习过程中的点滴">
+<meta property="og:description" content="Kotlin基础–函数###类和对象1、主构造函数和次构造函数 // 主构造函数 class Person constructor(value: Int){     // get  和 set方法的书写形式 ， 使用person.name=&amp;quot;xxx&amp;quot;来赋值，会执行set方法的逻辑     var name: String = &amp;quot;测试&amp;quot;         ge">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-03-04T02:11:51.012Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Zaki">
-<meta name="twitter:description" content="记录学习过程中的点滴">
+<meta name="twitter:title" content="Kotlin基础（二）">
+<meta name="twitter:description" content="Kotlin基础–函数###类和对象1、主构造函数和次构造函数 // 主构造函数 class Person constructor(value: Int){     // get  和 set方法的书写形式 ， 使用person.name=&amp;quot;xxx&amp;quot;来赋值，会执行set方法的逻辑     var name: String = &amp;quot;测试&amp;quot;         ge">
   
     <link rel="alternate" href="/atom.xml" title="Zaki" type="application/atom+xml">
   
@@ -68,133 +69,91 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/04/Kotlin基础知识-类与对象/" class="archive-article-date">
-  <time datetime="2019-03-04T02:10:34.453Z" itemprop="datePublished">3月 4</time>
+        <section id="main"><article id="post-Kotlin基础知识-类与对象" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/04/Kotlin基础知识-类与对象/" class="article-date">
+  <time datetime="2019-03-04T02:10:34.453Z" itemprop="datePublished">2019-03-04</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/04/Kotlin基础知识-类与对象/">Kotlin基础（二）</a>
+    <h1 class="article-title" itemprop="name">
+      Kotlin基础（二）
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2019/03/04/Kotlin基础知识-函数/" class="archive-article-date">
-  <time datetime="2019-03-04T02:08:12.250Z" itemprop="datePublished">3月 4</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/04/Kotlin基础知识-函数/">Kotlin基础（二）</a>
-    </h1>
-  
+        <a id="more"></a>
+<h2 id="Kotlin基础–函数"><a href="#Kotlin基础–函数" class="headerlink" title="Kotlin基础–函数"></a>Kotlin基础–函数</h2><p>###类和对象<br>1、主构造函数和次构造函数</p>
+<pre><code>// 主构造函数
+class Person constructor(value: Int){
+    // get  和 set方法的书写形式 ， 使用person.name=&quot;xxx&quot;来赋值，会执行set方法的逻辑
+    var name: String = &quot;测试&quot;
+        get() = field
+        set(value){field = value}
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/12/15/小知识/" class="archive-article-date">
-  <time datetime="2018-12-15T04:43:42.956Z" itemprop="datePublished">12月 15</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/16/优达数据基础/" class="archive-article-date">
-  <time datetime="2018-10-16T10:53:46.637Z" itemprop="datePublished">10月 16</time>
-</a>
-      
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/11/Android动态加载/" class="archive-article-date">
-  <time datetime="2018-10-11T08:08:31.086Z" itemprop="datePublished">10月 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/11/Android动态加载/">Android动态加载</a>
-    </h1>
-  
+    var age = value
+    // 初始化函数
+    init{
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2018/10/11/Kotlin基础知识-基本语法/" class="archive-article-date">
-  <time datetime="2018-10-11T02:23:54.953Z" itemprop="datePublished">10月 11</time>
-</a>
+    }
+}
+
+// 次构造函数
+class Person{
+     constructor(value: Int){
+        // 初始化操作
+    }
+}
+</code></pre><p>2、抽象 abstract  与  open（允许类继承或者方法重写）</p>
+<p>3、嵌套类 与 内部类(inner修饰)</p>
+<p>4、类的继承</p>
+<pre><code>//定义基类
+open class Base(p: Int)     
+// 继承
+class Derived(p: Int) : Base(p)
+
+主构造函数 和 子构造函数 下基类的定义
+
+方法重写 需要用open修饰， 属性重写需要 override 修饰
+</code></pre><p>5、扩展类的属性和方法</p>
+<pre><code>扩展是一种静态行为，不会对被扩展类的代码本身造成影响
+</code></pre><p>6、数据类</p>
+<pre><code>使用 data 关键字修饰，则该类只包含 数据
+</code></pre><p>7、密封类</p>
+<pre><code>使用sealed 修饰，密封类可以有子类，但是子类必须要内嵌在密封类中
+</code></pre><p>###泛型</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/11/Kotlin基础知识-基本语法/">Kotlin基础（一）</a>
-    </h1>
-  
-
-    </header>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/04/Kotlin基础知识-类与对象/" data-id="cjstw0z6y000410eod9bowq7q" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
-</article>
+  
+    
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/03/04/Kotlin基础知识-函数/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Kotlin基础（二）</div>
+    </a>
   
+</nav>
 
+  
+</article>
 
 </section>
         
